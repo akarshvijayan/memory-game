@@ -16,11 +16,12 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ card, onClick, isFlipped }) => {
     return (
         <div className={styles.card} onClick={onClick}>
-            <div className={`${styles.cardInner} ${isFlipped ? styles.flipped : ''}`}>
-                <div className={styles.cardFront}>
+            <div className={`${styles.cardInner} ${isFlipped ? styles.flipped : styles.notFlipped}`}>
+                <div className={`${!isFlipped ? styles.cardFront : ''}`}>
                     <img src={card.flag} alt="Country flag" />
                 </div>
-                <div className={styles.cardBack}></div>
+                <div className={`${!isFlipped ? styles.cardBack : ''}`}>
+            </div>
             </div>
         </div>
     );
